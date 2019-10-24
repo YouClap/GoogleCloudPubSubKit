@@ -1,7 +1,6 @@
-# Insert here a fancy name to your repository ✨🥰
+# GoogleCloudPubSubKit 📬
 
-What is it? Add a nice and concise description about this 📝
-
+A pure swift client for [Google Cloud Pub/Sub](https://cloud.google.com/pubsub/).
 
 # About
 
