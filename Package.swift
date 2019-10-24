@@ -11,11 +11,12 @@ let package = Package(
             targets: ["GoogleCloudPubSubKit"]),
     ],
     dependencies: [
+        .package(url: "git@github.com:YouClap/GoogleCloudKit.git", .branch("downgrade_to_nio1_vapor3"))
     ],
     targets: [
         .target(
             name: "GoogleCloudPubSubKit",
-            dependencies: []),
+            dependencies: ["GoogleCloudKit"]),
         .testTarget(
             name: "GoogleCloudPubSubKitTests",
             dependencies: ["GoogleCloudPubSubKit"]),
