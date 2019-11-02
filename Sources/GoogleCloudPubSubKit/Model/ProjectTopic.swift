@@ -1,7 +1,7 @@
 import Foundation
 
 public struct ProjectTopic {
-    private static let PubSubPath = "/projects/%@/topics/%@"
+    private static let PubSubPath = "/projects/%s/topics/%s"
 
     public let project: String
     public let name: String
@@ -13,5 +13,5 @@ public struct ProjectTopic {
 }
 
 extension ProjectTopic {
-    var path: String { String(format: Self.PubSubPath, project, name) }
+    var path: String { "/projects/\(project)/topics/\(name)" }
 }
