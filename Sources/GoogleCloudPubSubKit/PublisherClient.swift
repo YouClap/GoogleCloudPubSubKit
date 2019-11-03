@@ -61,12 +61,12 @@ extension PublisherClient {
 }
 
 extension PublisherClient {
-    public func publish<Model: GoogleCloudModelEncodable>(model: Model, to topic: ProjectTopic)
+    public func publish<Model: GoogleCloudModelEncodable>(messages models: Model ..., to topic: ProjectTopic)
     -> EventLoopFuture<PublishResponse> {
         let path = "/v1\(topic.path):publish"
 
-        let message = PubSubMessage(data: model)
-        let messages = PubSubMessages(messages: [message])
+        let messageModels = models.map { PubSubMessage(data: $0) }
+        let messages = PubSubMessages(messages: messageModels)
 
         return request.send(method: .POST, path: path, body: messages)
     }
